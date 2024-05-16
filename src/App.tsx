@@ -1,13 +1,11 @@
-
+import Router from './Router';
 
 function App() {
   return (
     <>
-      <p>
-        Click on the Vite and React logos to learn more
-      </p>
+      <Router />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
