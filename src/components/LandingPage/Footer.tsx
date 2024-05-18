@@ -10,7 +10,9 @@ const Footer = () => {
     <div className="flex items-center flex-col md:flex-row justify-between pt-6 pb-10 px-5 md:px-0">
       <div className="flex flex-col md:flex-row text-center md:text-left  md:space-x-16 md:ml-20">
         <div>
-          <p className="text-customGreen text-2xl font-bold font-kadwa">Task Master</p>
+          <p className="text-customGreen text-2xl font-bold font-kadwa">
+            Task Master
+          </p>
           <p className="max-w-[204px] text-sm mt-1 md:mt-0">
             A to-do web app that allows you stay organized and plan orderly
           </p>
@@ -57,10 +59,10 @@ const Footer = () => {
         <p className="text-[11px] text-center md:text-left my-3 md:my-0">
           Suscribe to our newsletter and stay up to date on any new feature.
         </p>
-        <div className="flex items-center justify-center ">
+        <div className="flex ">
           <input
             type="text"
-            className="outline-none md:h-[47px] h-10 px-2 rounded-l-[10px] border border-lightBlack100"
+            className="outline-none md:h-[47px] h-10 px-2 max-w-[160px] md:max-w-[190px] rounded-l-[10px] border border-lightBlack100"
           />
           <button
             type="button"
