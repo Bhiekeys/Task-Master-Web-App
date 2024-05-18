@@ -59,7 +59,7 @@ const Footer = () => {
         <p className="text-[11px] text-center md:text-left my-3 md:my-0">
           Suscribe to our newsletter and stay up to date on any new feature.
         </p>
-        <div className="flex ">
+        <div className="flex justify-center items-center">
           <input
             type="text"
             className="outline-none md:h-[47px] h-10 px-2 max-w-[160px] md:max-w-[190px] rounded-l-[10px] border border-lightBlack100"
