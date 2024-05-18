@@ -30,3 +30,12 @@ label,
 input {
     font-family: 'Poppins', sans-serif;
 }
+
+.scrollbar-hide {
+    scrollbar-width: thin;
+    scrollbar-color: #0001 transparent;
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+   
+}

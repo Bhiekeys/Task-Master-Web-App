@@ -1,6 +1,10 @@
+import AccountCreation from '../../components/Auth/CreateAccount';
+
 const CreateAccount = () => {
   return (
-    <div>CreateAccount</div>
-  )
-}
-export default CreateAccount
+    <div>
+      <AccountCreation />
+    </div>
+  );
+};
+export default CreateAccount;

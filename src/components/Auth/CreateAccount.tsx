@@ -2,7 +2,8 @@ import Input from '../../constants/Reuseables/Input';
 import PasswordInput from '../../constants/Reuseables/PasswordInput';
 import background from '../../assets/background.png';
 import { Link } from 'react-router-dom';
-const Login = () => {
+
+const CreateAccount = () => {
   return (
     <div
       style={{
@@ -21,27 +22,48 @@ const Login = () => {
           Task Master
         </Link>
         <div className="flex justify-center">
-          <div className="bg-white  pt-20 h-[527px] max-w-[532px] w-full px-5 md:px-[45px] rounded-[10px]">
+          <div className="bg-white pt-20 h-[527px]  max-w-[532px] w-full px-5 md:px-[45px] rounded-[10px] ">
             <div className="text-center mb-8 md:mb-12">
-              <h2 className="font-semibold text-xl">Sign into your account</h2>
+              <h2 className="font-semibold text-xl">Sign up for an account</h2>
               <p className="text-sm">
-                Don’t have an account yet?{' '}
-                <Link to="/createAccount" className="text-customGreen">
-                  Sign Up Now
+                Already have an account?
+                <Link to="/login" className="text-customGreen">
+                  {' '}
+                  Log in
                 </Link>
               </p>
             </div>
-            <form>
+            <form className="scrollbar-hide overflow-y-scroll h-[330px] ">
+              <div className="flex items-center gap-3">
+                <Input
+                  label="First name"
+                  id="firstName"
+                  type="text"
+                  placeholder="first name"
+                />
+
+                <Input
+                  label="Last Name"
+                  id="lastName"
+                  type="text"
+                  placeholder="last name"
+                />
+              </div>
               <Input
-                label="Enter your email address"
+                label="Enter email address"
                 id="email"
                 type="email"
-                placeholder="Your email address"
+                placeholder="email address"
               />
               <PasswordInput
-                label="Enter your password"
+                label="Set up a password"
                 id="password"
-                placeholder="Your password"
+                placeholder="password"
+              />
+              <PasswordInput
+                label="Confirm password"
+                id="password"
+                placeholder="password"
               />
               <span className="block text-end text-xs text-customGreen">
                 {' '}
@@ -49,8 +71,8 @@ const Login = () => {
               </span>
               <button
                 type="submit"
-                className="bg-customGreen w-full text-white py-3 rounded-[10px] mt-[31px]">
-                Log in
+                className="bg-customGreen w-full text-white py-3 rounded-[10px] mt-4">
+                Sign Up
               </button>
             </form>
           </div>
@@ -59,4 +81,4 @@ const Login = () => {
     </div>
   );
 };
-export default Login;
+export default CreateAccount;
