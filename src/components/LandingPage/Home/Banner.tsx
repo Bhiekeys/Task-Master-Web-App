@@ -9,15 +9,15 @@ import TaskMaster from './TaskMaster';
 const Banner = () => {
   return (
     <>
-      <div className="md:pt-[120px] pt-20  flex justify-center items-center text-center">
+      <div className="md:pt-[120px] pt-24  flex justify-center items-center text-center">
         <div className="max-w-[738px] px-5 md:px-0 ">
-          <h2 className="text-2xl md:text-[40px] font-bold md:font-semibold leading-10 md:leading-[53px]">
+          <h1 className="text-2xl md:text-[40px] font-bold md:font-semibold leading-10 md:leading-[53px]">
             Stay <span className="text-customGreen">Organized</span> and get
             your
             <span className="text-customGreen"> day-to-day </span>
             activities sorted out in a more orderly manner.
-          </h2>
-          <p className="text-sm my-9">
+          </h1>
+          <p className="text-sm my-5 md:my-9">
             Be part of the most organized and efficient people on earth by using
             the TaskMaster
           </p>

@@ -13,6 +13,10 @@ export default {
         lightBlack100: '#00000080',
         customGray: '#B8B2B24D',
       },
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
+      },
     },
   },
   plugins: [],
