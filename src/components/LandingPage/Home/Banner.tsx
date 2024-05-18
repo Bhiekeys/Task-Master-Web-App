@@ -1,15 +1,15 @@
 import dashboard from '../../../assets/dashboardImage.png';
-// import Footer from '../Footer';
+import Footer from '../Footer';
 import AboutApp from './AboutApp';
-// import MobileAdvert from './MobileAdvert';
+import MobileAdvert from './MobileAdvert';
 import Purpose from './Purpose';
-// import Reviews from './Reviews';
-// import TaskMaster from './TaskMaster';
+import Reviews from './Reviews';
+import TaskMaster from './TaskMaster';
 
 const Banner = () => {
   return (
     <>
-      <div className="pt-[120px]  flex justify-center items-center text-center">
+      <div className="md:pt-[120px] pt-20  flex justify-center items-center text-center">
         <div className="max-w-[738px] px-5 md:px-0 ">
           <h2 className="text-2xl md:text-[40px] font-bold md:font-semibold leading-10 md:leading-[53px]">
             Stay <span className="text-customGreen">Organized</span> and get
@@ -40,10 +40,10 @@ const Banner = () => {
       </div>
       <AboutApp />
       <Purpose />
-      {/* <MobileAdvert />
+      <MobileAdvert />
       <Reviews />
       <TaskMaster />
-      <Footer /> */}
+      <Footer />
     </>
   );
 };

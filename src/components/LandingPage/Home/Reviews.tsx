@@ -4,14 +4,14 @@ import user3 from '../../../assets/user3.png';
 
 const Reviews = () => {
   return (
-    <div className="flex justify-center flex-col items-center  pb-[123px]">
+    <div className="flex justify-center flex-col items-center pb-10 md:pb-[123px] px-5 md:px-0">
       <div>
-        <h2 className="text-4xl font-semibold py-[57px]">
+        <h2 className="text-2xl md:text-4xl font-semibold py-7 md:py-[57px] text-center md:text-center">
           What are our <span className="text-customGreen"> App Users</span> are
           saying
         </h2>
       </div>
-      <div className="flex justify-center gap-9 ">
+      <div className="flex justify-center flex-wrap gap-9 ">
         {users.map((user,index) => {
             const { id, image, name, text } = user;
              const bg= index === 1 ? 'bg-customGreen200' : 'bg-customGray';
