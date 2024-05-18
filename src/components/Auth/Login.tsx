@@ -17,7 +17,7 @@ const Login = () => {
       <div className="w-full flex justify-between flex-col px-5 md:px-0 py-10 md:py-0">
         <Link
           to="/"
-          className="text-white md:text-left  text-center text-2xl font-kadwa pb-7 md:ml-[98px]">
+          className="text-white md:text-left  text-center text-2xl font-kadwa pb-7 md:ml-[98px] w-fit">
           Task Master
         </Link>
         <div className="flex justify-center">

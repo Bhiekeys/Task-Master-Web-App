@@ -7,7 +7,9 @@ import { MdOutlineFacebook } from 'react-icons/md';
 import { SlSocialInstagram } from 'react-icons/sl';
 const Footer = () => {
   return (
-    <div className="flex items-center flex-col md:flex-row justify-between pt-6 pb-10 px-5 md:px-0">
+    <div
+      id="privacyPolicy"
+      className="flex items-center flex-col md:flex-row justify-between pt-6 pb-10 px-5 md:px-0">
       <div className="flex flex-col md:flex-row text-center md:text-left  md:space-x-16 md:ml-20">
         <div>
           <p className="text-customGreen text-2xl font-bold font-kadwa">

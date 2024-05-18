@@ -9,7 +9,9 @@ import TaskMaster from './TaskMaster';
 const Banner = () => {
   return (
     <>
-      <div className="md:pt-[120px] pt-24  flex justify-center items-center text-center">
+      <div
+        id="home"
+        className="md:pt-[120px] pt-24  flex justify-center items-center text-center">
         <div className="max-w-[738px] px-5 md:px-0 ">
           <h1 className="text-2xl md:text-[40px] font-bold md:font-semibold leading-10 md:leading-[53px]">
             Stay <span className="text-customGreen">Organized</span> and get

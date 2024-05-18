@@ -45,5 +45,6 @@ const Router = () => {
       errorElement: <h2>Error Ocurred</h2>,
     },
   ]);
+  
 };
 export default Router;

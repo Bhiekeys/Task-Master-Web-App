@@ -1,10 +1,12 @@
-import frame1 from "../../../assets/frame1.png"
-import frame2 from "../../../assets/frame2.png"
-import frame3 from "../../../assets/frame3.png"
+import frame1 from '../../../assets/frame1.png';
+import frame2 from '../../../assets/frame2.png';
+import frame3 from '../../../assets/frame3.png';
 
 const AboutApp = () => {
   return (
-    <div className="flex mb-[57px] flex-col md:flex-row items-center justify-between mt-[78px] px-5 lg:px-0">
+    <div
+      id="about"
+      className="flex mb-[57px] flex-col md:flex-row items-center justify-between mt-[78px] px-5 lg:px-0">
       <div className="lg:ml-[77px] text-center md:text-left">
         <h2 className="md:text-3xl text-2xl font-bold leading-10 md:leading-[45px] md:max-w-[396px]">
           An app that allows you to stay{' '}

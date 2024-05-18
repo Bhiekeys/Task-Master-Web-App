@@ -4,7 +4,7 @@ import playstore from '../../../assets/playstore2.svg';
 import playstore1 from '../../../assets/playstore.svg';
 const MobileAdvert = () => {
   return (
-    <div className="md:py-[99px] py-14 flex flex-col md:flex-row px-5 md:px-0 items-center justify-center border-b border-lightBlack ">
+    <div id='downloadApp' className="md:py-[99px] py-14 flex flex-col md:flex-row px-5 md:px-0 items-center justify-center border-b border-lightBlack ">
       <div className="">
         <img src={iphone} alt="phone" />
       </div>

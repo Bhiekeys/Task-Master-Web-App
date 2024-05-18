@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { GrClose } from 'react-icons/gr';
 import { navs } from '../../constants/HomeNavData';
+import { Link as ScrollLink } from 'react-scroll';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -20,18 +22,26 @@ const Navbar = () => {
       className={`${
         show && 'rounded-b-3xl pb-6 shadow-lg'
       } flex flex-col lg:flex-row bg-white py-5 md:py-7 items-center sm:justify-between justify-around z-10 fixed  w-full px-5 lg:px-0  `}>
-      <Link
-        to="/"
+      <ScrollLink
+        to="home"
+        spy={true}
+        smooth={true}
+        offset={0}
+        duration={500}
         className="hidden lg:flex text-customGreen text-2xl pl-[72px] font-bold font-kadwa">
         Task Master
-      </Link>
+      </ScrollLink>
 
       <div className={`lg:hidden flex justify-between items-center w-full `}>
-        <Link
-          to="/"
+        <ScrollLink
+          to="home"
+          spy={true}
+          smooth={true}
+          offset={0}
+          duration={500}
           className=" text-customGreen text-2xl font-bold font-kadwa">
           Task Master
-        </Link>
+        </ScrollLink>
         <div className="lg:hidden ml-3 md:ml-0">
           {show ? (
             <GrClose className="text-[30px]" onClick={showHandler} />
@@ -49,17 +59,23 @@ const Navbar = () => {
         {navs.map((nav) => {
           const { id, url, text } = nav;
           return (
-            <NavLink
+            <ScrollLink
               key={id}
               to={url}
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
               onClick={showContent}
-              className={({ isActive }) =>
-                isActive
-                  ? 'text-customGreen text-sm underline underline-offset-4  '
-                  : 'text-black text-sm hover:text-customGreen '
-              }>
+              className="text-black text-sm hover:text-customGreen"
+              // className={({ isActive }) =>
+              //   isActive
+              //     ? 'text-customGreen text-sm underline underline-offset-4  '
+              //     : 'text-black text-sm hover:text-customGreen '
+              // }
+            >
               {text}
-            </NavLink>
+            </ScrollLink>
           );
         })}
         <NavLink
@@ -90,35 +106,41 @@ const Navbar = () => {
           {navs.map((nav) => {
             const { id, url, text } = nav;
             return (
-              <NavLink
-                key={id}
+              <ScrollLink
                 to={url}
-                className={({ isActive }) =>
-                  isActive
-                    ? 'font-semibold text-customGreen text-sm'
-                    : 'text-black hover:text-customGreen text-sm'
-                }>
+                spy={true}
+                smooth={true}
+                offset={0}
+                duration={500}
+                key={id}
+                className="text-black hover:text-customGreen text-sm"
+                // className={({ isActive }) =>
+                //   isActive
+                //     ? 'font-semibold text-customGreen text-sm'
+                //     : 'text-black hover:text-customGreen text-sm'
+                // }
+              >
                 {text}
-              </NavLink>
+              </ScrollLink>
             );
           })}
         </div>
 
         <div className="hidden lg:flex items-center gap-5 pr-5">
-          <Link to="/login">
+          <RouterLink to="/login">
             <button
               type="button"
               className="font-bold text-sm text-customGreen ">
               Log in
             </button>
-          </Link>
-          <Link to="/createAccount">
+          </RouterLink>
+          <RouterLink to="/createAccount">
             <button
               type="button"
               className="text-customPink bg-customGreen py-3 px-8 rounded-[10px]">
               Create Account
             </button>
-          </Link>
+          </RouterLink>
         </div>
       </div>
     </div>
