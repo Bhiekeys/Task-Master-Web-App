@@ -12,13 +12,14 @@ export default {
         lightBlack: '#00000033',
         lightBlack100: '#00000080',
         customGray: '#B8B2B24D',
+        customGray100: '#B6B5B5',
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
         serif: ['Playfair Display', 'serif'],
+        kadwa: ['Kadwa', 'sans-serif'],
       },
     },
   },
   plugins: [],
 };
-

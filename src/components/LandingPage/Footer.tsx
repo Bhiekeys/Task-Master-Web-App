@@ -10,7 +10,7 @@ const Footer = () => {
     <div className="flex items-center flex-col md:flex-row justify-between pt-6 pb-10 px-5 md:px-0">
       <div className="flex flex-col md:flex-row text-center md:text-left  md:space-x-16 md:ml-20">
         <div>
-          <p className="text-customGreen text-2xl font-bold">Task Master</p>
+          <p className="text-customGreen text-2xl font-bold font-kadwa">Task Master</p>
           <p className="max-w-[204px] text-sm mt-1 md:mt-0">
             A to-do web app that allows you stay organized and plan orderly
           </p>

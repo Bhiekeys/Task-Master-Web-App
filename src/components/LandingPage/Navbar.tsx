@@ -22,13 +22,14 @@ const Navbar = () => {
       } flex flex-col lg:flex-row bg-white py-5 md:py-7 items-center sm:justify-between justify-around z-10 fixed  w-full px-5 lg:px-0  `}>
       <Link
         to="/"
-        className="hidden lg:flex text-customGreen text-2xl pl-[72px] font-bold">
+        className="hidden lg:flex text-customGreen text-2xl pl-[72px] font-bold font-kadwa">
         Task Master
       </Link>
 
-      <div
-        className={`lg:hidden flex justify-between items-center w-full `}>
-        <Link to="/" className=" text-customGreen text-2xl font-bold">
+      <div className={`lg:hidden flex justify-between items-center w-full `}>
+        <Link
+          to="/"
+          className=" text-customGreen text-2xl font-bold font-kadwa">
           Task Master
         </Link>
         <div className="lg:hidden ml-3 md:ml-0">
