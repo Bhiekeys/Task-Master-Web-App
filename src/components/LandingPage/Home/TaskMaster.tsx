@@ -1,10 +1,22 @@
+import { useRef } from 'react';
 import laptop from '../../../assets/laptop.png';
 import { motion } from 'framer-motion';
+import useScrolling from '../../../animation/useScroll';
 
 const TaskMaster = () => {
+   const sectionRef = useRef(null);
+   const isVisible = useScrolling(sectionRef);
   return (
-    <div className="bg-customGreen py-14 md:py-5 flex flex-col-reverse md:flex-row items-center justify-center gap-10 md:gap-[150px] px-5 md:px-0">
-      <motion.div className=" text-center md:text-left ">
+    <div className="bg-customGreen overflow-hidden py-14 md:py-5 flex flex-col-reverse md:flex-row items-center justify-center gap-10 md:gap-[150px] px-5 md:px-0">
+      <motion.div
+        ref={sectionRef}
+        initial={{ opacity: 1, x: -100 }}
+        animate={{
+          opacity: isVisible ? 1 : 0,
+          x: isVisible ? 0 : -100,
+        }}
+        transition={{ duration: 1, delay: 0.2 }}
+        className=" text-center md:text-left ">
         <h2 className="font-bold text-2xl md:text-[32px] text-white">
           About TaskMaster
         </h2>

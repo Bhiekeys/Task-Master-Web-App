@@ -1,13 +1,13 @@
-import { useRef } from 'react';
 import user1 from '../../../assets/user1.png';
 import user2 from '../../../assets/user2.png';
 import user3 from '../../../assets/user3.png';
 import { motion } from 'framer-motion';
+import { useRef } from 'react';
 import useScrolling from '../../../animation/useScroll';
 
 const Reviews = () => {
-   const sectionRef = useRef(null);
-   const isVisible = useScrolling(sectionRef);
+  const sectionRef = useRef(null);
+  const isVisible = useScrolling(sectionRef);
   return (
     <div className="flex justify-center flex-col items-center pb-10 md:pb-[123px] px-5 md:px-0">
       <div>
@@ -16,19 +16,27 @@ const Reviews = () => {
           saying
         </h2>
       </div>
-      <div className="flex justify-center flex-wrap gap-9 ">
-        {users.map((user,index) => {
-            const { id, image, name, text } = user;
-             const bg= index === 1 ? 'bg-customGreen200' : 'bg-customGray';
+      <motion.div
+        ref={sectionRef}
+        initial={{ opacity: 1, rotateX: 10 }}
+        animate={{
+          opacity: isVisible ? 1 : 1,
+          rotateX: isVisible ? 0 : 10,
+        }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="flex justify-center flex-wrap gap-9 ">
+        {users.map((user, index) => {
+          const { id, image, name, text } = user;
+          const bg = index === 1 ? 'bg-customGreen200' : 'bg-customGray';
           return (
             <motion.div
               ref={sectionRef}
-              initial={{ opacity: 0.9, }}
+              initial={{ opacity: 1, rotateX: 10 }}
               animate={{
-                opacity: isVisible ? 1 : 0,
-               
+                opacity: isVisible ? 1 : 0.2,
+                rotateX: isVisible ? 0 : 10,
               }}
-              transition={{ duration:0.4, delay: id * 0.1 }}
+              transition={{ duration: 0.5, delay: id * 0.1 }}
               key={id}
               className={`${bg} flex flex-col justify-center items-center rounded-[10px] text-customGreen  max-w-[299px] px-8 h-[275px]`}>
               <img src={image} alt="user" />
@@ -39,7 +47,7 @@ const Reviews = () => {
             </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 };
