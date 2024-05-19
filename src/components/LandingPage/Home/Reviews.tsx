@@ -1,8 +1,13 @@
+import { useRef } from 'react';
 import user1 from '../../../assets/user1.png';
 import user2 from '../../../assets/user2.png';
 import user3 from '../../../assets/user3.png';
+import { motion } from 'framer-motion';
+import useScrolling from '../../../animation/useScroll';
 
 const Reviews = () => {
+   const sectionRef = useRef(null);
+   const isVisible = useScrolling(sectionRef);
   return (
     <div className="flex justify-center flex-col items-center pb-10 md:pb-[123px] px-5 md:px-0">
       <div>
@@ -16,15 +21,22 @@ const Reviews = () => {
             const { id, image, name, text } = user;
              const bg= index === 1 ? 'bg-customGreen200' : 'bg-customGray';
           return (
-            <div
+            <motion.div
+              ref={sectionRef}
+              initial={{ opacity: 0, rotateX: 30 }}
+              animate={{
+                opacity: isVisible ? 1 : 0,
+                rotateX: isVisible ? 0 : 30,
+              }}
+              transition={{ duration: 1, delay: id * 0.2 }}
               key={id}
               className={`${bg} flex flex-col justify-center items-center rounded-[10px] text-customGreen  max-w-[299px] px-8 h-[275px]`}>
               <img src={image} alt="user" />
-              <div className='mt-[29px]'>
-                <p className='text-2xl font-semibold'>{name}</p>
-                <p className='text-sm'>{text}</p>
+              <div className="mt-[29px]">
+                <p className="text-2xl font-semibold">{name}</p>
+                <p className="text-sm">{text}</p>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

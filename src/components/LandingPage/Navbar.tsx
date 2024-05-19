@@ -111,7 +111,7 @@ const Navbar = () => {
                 to={url}
                 spy={true}
                 smooth={true}
-                offset={0}
+                offset={-100}
                 duration={700}
                 key={id}
                 className={`text-black text-sm hover:text-customGreen cursor-pointer ${

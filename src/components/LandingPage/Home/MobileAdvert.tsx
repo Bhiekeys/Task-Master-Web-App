@@ -2,13 +2,26 @@ import iphone from '../../../assets/iPhone.png';
 import stars from '../../../assets/stars.png';
 import playstore from '../../../assets/playstore2.svg';
 import playstore1 from '../../../assets/playstore.svg';
+import { useRef } from 'react';
+import useScrolling from '../../../animation/useScroll';
+import { motion } from 'framer-motion';
+
 const MobileAdvert = () => {
+   const sectionRef = useRef(null);
+   const isVisible = useScrolling(sectionRef);
   return (
-    <div id='downloadApp' className="md:py-[99px] py-14 flex flex-col md:flex-row px-5 md:px-0 items-center justify-center border-b border-lightBlack ">
+    <div
+      id="downloadApp"
+      className="md:py-[99px] overflow-hidden py-14 flex flex-col md:flex-row px-5 md:px-0 items-center justify-center border-b border-lightBlack ">
       <div className="">
         <img src={iphone} alt="phone" />
       </div>
-      <div className="flex flex-col justify-center items-center text-center md:block md:text-left mt-5 md:mt-0">
+      <motion.div
+        ref={sectionRef}
+        initial={{ opacity: 0, x: 300 }}
+        animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 300 }}
+        transition={{ duration: 1, delay: 0.3}}
+        className="flex flex-col justify-center items-center text-center  md:block md:text-left mt-5 md:mt-0">
         <p className="font-semibold text-2xl md:text-4xl">
           We now have a Mobile App{' '}
         </p>
@@ -31,7 +44,7 @@ const MobileAdvert = () => {
             <span> Google Playstore</span>
           </button>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
