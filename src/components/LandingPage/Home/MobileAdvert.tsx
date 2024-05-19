@@ -18,8 +18,8 @@ const MobileAdvert = () => {
       </div>
       <motion.div
         ref={sectionRef}
-        initial={{ opacity: 0, x: 300 }}
-        animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 300 }}
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 50 }}
         transition={{ duration: 1, delay: 0.3}}
         className="flex flex-col justify-center items-center text-center  md:block md:text-left mt-5 md:mt-0">
         <p className="font-semibold text-2xl md:text-4xl">

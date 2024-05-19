@@ -23,12 +23,12 @@ const Reviews = () => {
           return (
             <motion.div
               ref={sectionRef}
-              initial={{ opacity: 0, rotateX: 30 }}
+              initial={{ opacity: 0.9, }}
               animate={{
                 opacity: isVisible ? 1 : 0,
-                rotateX: isVisible ? 0 : 30,
+               
               }}
-              transition={{ duration: 1, delay: id * 0.2 }}
+              transition={{ duration:0.4, delay: id * 0.1 }}
               key={id}
               className={`${bg} flex flex-col justify-center items-center rounded-[10px] text-customGreen  max-w-[299px] px-8 h-[275px]`}>
               <img src={image} alt="user" />

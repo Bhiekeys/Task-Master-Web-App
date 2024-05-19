@@ -11,7 +11,7 @@ const AboutApp = () => {
   return (
     <div
       id="about"
-      className="flex mb-[57px] flex-col md:flex-row items-center justify-between mt-[78px] px-5 lg:px-0">
+      className="flex overflow-hidden mb-[57px] flex-col md:flex-row items-center justify-between mt-[78px] px-5 lg:px-0">
       <div className="lg:ml-[77px] text-center md:text-left">
         <motion.h2
           ref={sectionRef}

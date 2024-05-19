@@ -9,7 +9,7 @@ const Purpose = () => {
   const sectionRef = useRef(null);
   const isVisible = useScrolling(sectionRef);
   return (
-    <div className="py-10 flex px-5 md:px-0 flex-col items-center justify-center bg-customGreen">
+    <div className="py-10 flex px-5 md:px-0 flex-col overflow-hidden items-center justify-center bg-customGreen">
       <>
         <div>
           <p className="max-w-[855px]  font-semibold text-xl leading-10 md:leading-[36px] md:text-2xl text-center">
@@ -25,12 +25,12 @@ const Purpose = () => {
             return (
               <motion.div
                 ref={sectionRef}
-                initial={{ opacity: 0, rotateX: 30 }}
+                initial={{ opacity: 0, rotateX: 10 }}
                 animate={{
                   opacity: isVisible ? 1 : 0,
-                  rotateX: isVisible ? 0 : 30,
+                  rotateX: isVisible ? 0 : 10,
                 }}
-                transition={{ duration: 1, delay: id * 0.1 }}
+                transition={{ duration: 0.5, delay: id * 0.1 }}
                 key={id}
                 className="flex  items-center bg-white  md:mx-0 h-[236px] px-5 max-w-[527px] rounded-[10px] gap-3 lg:px-20">
                 <span className="bg-customGreen text-white p-2 rounded-full text-xl mb-10">

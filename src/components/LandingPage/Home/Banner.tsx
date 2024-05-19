@@ -17,7 +17,7 @@ const Banner = () => {
     <>
       <motion.div
         id="home"
-        className="md:pt-[120px] pt-24  flex justify-center items-center text-center">
+        className="md:pt-[120px] overflow-hidden pt-24  flex justify-center items-center text-center">
         <motion.div className="max-w-[738px] px-5 md:px-0 ">
           <motion.h1
             ref={sectionRef}
