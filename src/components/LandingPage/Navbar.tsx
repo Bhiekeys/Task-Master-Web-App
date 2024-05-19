@@ -8,9 +8,11 @@ import { Link as RouterLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
+  const [activeLink, setActiveLink] = useState(navs[0].url);
 
-  const showContent = () => {
+  const showContent = (url: string) => {
     setShow(false);
+    setActiveLink(url);
   };
 
   const showHandler = () => {
@@ -27,8 +29,8 @@ const Navbar = () => {
         spy={true}
         smooth={true}
         offset={0}
-        duration={500}
-        className="hidden lg:flex text-customGreen text-2xl pl-[72px] font-bold font-kadwa">
+        duration={700}
+        className="hidden lg:flex text-customGreen text-2xl pl-[72px] font-bold font-kadwa cursor-pointer">
         Task Master
       </ScrollLink>
 
@@ -38,7 +40,7 @@ const Navbar = () => {
           spy={true}
           smooth={true}
           offset={0}
-          duration={500}
+          duration={700}
           className=" text-customGreen text-2xl font-bold font-kadwa">
           Task Master
         </ScrollLink>
@@ -65,22 +67,21 @@ const Navbar = () => {
               spy={true}
               smooth={true}
               offset={-100}
-              duration={500}
-              onClick={showContent}
-              className="text-black text-sm hover:text-customGreen"
-              // className={({ isActive }) =>
-              //   isActive
-              //     ? 'text-customGreen text-sm underline underline-offset-4  '
-              //     : 'text-black text-sm hover:text-customGreen '
-              // }
-            >
+              duration={700}
+              onClick={() => showContent(url)}
+              className={`text-black text-sm hover:text-customGreen cursor-pointer ${
+                activeLink === url
+                  ? 'font-semibold text-customGreen underline underline-offset-4 text-sm'
+                  : ''
+              }`}
+              activeClass="active">
               {text}
             </ScrollLink>
           );
         })}
         <NavLink
           to="/login"
-          onClick={showContent}
+          onClick={() => setShow(false)}
           className={({ isActive }) =>
             isActive
               ? 'text-customGreen text-sm underline underline-offset-4 decoration-[1px] decoration-customGreen '
@@ -90,7 +91,7 @@ const Navbar = () => {
         </NavLink>
         <NavLink
           to="/createAccount"
-          onClick={showContent}
+          onClick={() => setShow(false)}
           className={({ isActive }) =>
             isActive
               ? 'text-customGreen text-sm underline underline-offset-4 decoration-[1px] decoration-customGreen '
@@ -111,15 +112,15 @@ const Navbar = () => {
                 spy={true}
                 smooth={true}
                 offset={0}
-                duration={500}
+                duration={700}
                 key={id}
-                className="text-black hover:text-customGreen text-sm"
-                // className={({ isActive }) =>
-                //   isActive
-                //     ? 'font-semibold text-customGreen text-sm'
-                //     : 'text-black hover:text-customGreen text-sm'
-                // }
-              >
+                className={`text-black text-sm hover:text-customGreen cursor-pointer ${
+                  activeLink === url
+                    ? 'font-semibold text-customGreen  text-sm'
+                    : ''
+                }`}
+                activeClass="active"
+                onClick={() => setActiveLink(url)}>
                 {text}
               </ScrollLink>
             );
