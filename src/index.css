@@ -40,6 +40,14 @@ input {
     }
    
 }
+.scrollbar-hidden {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+   
+}
 
 .bg-custom-gradient {
     @apply bg-gradient-to-b from-customGreen400 to-customGreen500;

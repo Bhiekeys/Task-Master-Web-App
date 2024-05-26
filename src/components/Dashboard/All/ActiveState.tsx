@@ -63,6 +63,17 @@ const ActiveState = () => {
       important: true,
       status: 'todo',
     },
+    {
+      id: 8,
+      title: 'Open Udemy and learn a new skill',
+      time: '10:30am',
+      date: 'Monday, 13th June, 2024',
+      important: true,
+      status: 'todo',
+    },
+   
+    
+   
   ];
 
   const todos = todo.filter((t) => t.status === 'todo');

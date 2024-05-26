@@ -94,7 +94,7 @@ const Sidebar = () => {
                 Go pro
               </button>
             </div>
-            <div className="my-3">
+            <div className="py-2 mt-4">
               <div className="flex items-center ml-3 gap-[18px] cursor-pointer font-medium text-base ">
                 <MdOutlineLogout className="text-customGreen " />
                 <p>Logout</p>

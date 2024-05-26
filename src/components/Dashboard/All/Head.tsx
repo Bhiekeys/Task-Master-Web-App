@@ -4,7 +4,7 @@ import ActiveState from './ActiveState';
 
 const Head = () => {
   return (
-    <div className="h-screen overflow-y-scroll px-4 md:px-0  md:pl-7 md:pr-5 scrollbar-hide pt-[70px] md:pt-0 ">
+    <div className="h-screen overflow-y-scroll px-4 md:px-0  md:pl-7 md:pr-5 scrollbar-hidden pt-[70px] md:pt-0 ">
       <div className=" flex justify-between items-center mt-3">
         <div>
           <h2 className="font-semibold text-xl">Hi Olabode!</h2>

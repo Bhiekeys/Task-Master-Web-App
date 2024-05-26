@@ -3,6 +3,7 @@ import { LuCalendarDays } from 'react-icons/lu';
 import { MdAccessTime } from 'react-icons/md';
 import { RxDotFilled } from 'react-icons/rx';
 import { PiFlagLight } from 'react-icons/pi';
+import { useEffect, useRef, useState } from 'react';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 interface Todo {
@@ -20,11 +21,32 @@ interface TodoTableProps {
 }
 
 const TodoTable: React.FC<TodoTableProps> = ({ todo, searchQuery }) => {
+  const [selectedTaskId, setSelectedTaskId] = useState<number | null>(null);
+  const modalRef = useRef<HTMLDivElement | null>(null);
+
+  const toggleDropdown = (id: number) => {
+    setSelectedTaskId((prevId) => (prevId === id ? null : id));
+  };
+
   const filteredTodos = searchQuery
     ? todo.filter((t: Todo) =>
         t.title.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : todo;
+
+  const handleOverlayClick = (event: any) => {
+    if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+      setSelectedTaskId(null);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleOverlayClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOverlayClick);
+    };
+  }, []);
 
   return (
     <div className="mt-6  overflow-scroll scrollbar-hide h-96">
@@ -43,7 +65,7 @@ const TodoTable: React.FC<TodoTableProps> = ({ todo, searchQuery }) => {
             return (
               <div
                 key={id}
-                className="flex justify-between items-center bg-customGray200 px-2 sm:px-4 mb-[6px] rounded-md py-2">
+                className="flex justify-between items-center bg-customGray200 px-2 sm:px-4 mb-[6px] rounded-md py-2 relative">
                 <div className="flex items-center gap-[10px]">
                   <div
                     className={`w-[19px] h-[19px] rounded-[5px] ${
@@ -71,10 +93,24 @@ const TodoTable: React.FC<TodoTableProps> = ({ todo, searchQuery }) => {
                   </div>
                 </div>
                 <div className="flex items-center gap-1 sm:gap-3">
-                  <HiDotsHorizontal className="cursor-pointer" />
+                  <HiDotsHorizontal
+                    className="cursor-pointer"
+                    onClick={() => toggleDropdown(id)}
+                  />
                   <PiFlagLight
                     className={`${important ? 'text-customRed' : 'text-black'}`}
                   />
+                  {selectedTaskId === id && (
+                    <div
+                      ref={modalRef}
+                      className="absolute z-10 right-14 cursor-pointer text-[10px] text-customGreen mt-44 p-2 rounded-br-[10px] rounded-tl-[10px] shadow-lg bg-white">
+                      <p>view task</p>
+                      <p>edit task</p>
+                      <p>move to in progress</p>
+                      <p>move to completed</p>
+                      <p>delete task</p>
+                    </div>
+                  )}
                 </div>
               </div>
             );
