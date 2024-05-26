@@ -1,8 +1,13 @@
 import Input from '../../constants/Reuseables/Input';
 import PasswordInput from '../../constants/Reuseables/PasswordInput';
 import background from '../../assets/background.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 const Login = () => {
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    navigate('/dashboard/all');
+  };
   return (
     <div
       style={{
@@ -31,7 +36,7 @@ const Login = () => {
                 </Link>
               </p>
             </div>
-            <form>
+            <form onSubmit={handleSubmit}>
               <Input
                 label="Enter your email address"
                 id="email"
