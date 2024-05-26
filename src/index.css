@@ -40,3 +40,10 @@ input {
     }
    
 }
+
+.bg-custom-gradient {
+    @apply bg-gradient-to-b from-customGreen400 to-customGreen500;
+}
+.half-painted {
+    background: linear-gradient(to top, #05462C 50%, transparent 50%);
+}
