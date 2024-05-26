@@ -2,10 +2,14 @@ import Tabs from './Tabs';
 import { useState } from 'react';
 import TodoTable from './TodoTable';
 import { MdAdd } from 'react-icons/md';
+import TaskModal from '../../../constants/Reuseables/TaskModal';
 
 const ActiveState = () => {
   const [searchQuery, setSearchQuery] = useState('');
-
+  const [openModal, setOpenModal] = useState(false);
+  const modalHandler = () => {
+    setOpenModal(!openModal);
+  };
   const todo = [
     {
       id: 1,
@@ -71,9 +75,6 @@ const ActiveState = () => {
       important: true,
       status: 'todo',
     },
-   
-    
-   
   ];
 
   const todos = todo.filter((t) => t.status === 'todo');
@@ -120,11 +121,13 @@ const ActiveState = () => {
         <div className="flex justify-end">
           <button
             type="button"
+            onClick={modalHandler}
             className="p-2 rounded-full cursor-pointer bg-customGreen w-fit">
             <MdAdd className=" text-white text-2xl  " />
           </button>
         </div>
       </div>
+          {openModal && <TaskModal openModal={setOpenModal} />}
     </>
   );
 };

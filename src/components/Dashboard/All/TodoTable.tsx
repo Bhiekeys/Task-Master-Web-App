@@ -28,6 +28,8 @@ const TodoTable: React.FC<TodoTableProps> = ({ todo, searchQuery }) => {
     setSelectedTaskId((prevId) => (prevId === id ? null : id));
   };
 
+ 
+
   const filteredTodos = searchQuery
     ? todo.filter((t: Todo) =>
         t.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -117,6 +119,7 @@ const TodoTable: React.FC<TodoTableProps> = ({ todo, searchQuery }) => {
           })}
         </>
       )}
+   
     </div>
   );
 };

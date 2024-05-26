@@ -14,6 +14,7 @@ export default {
         lightBlack: '#00000033',
         lightBlack100: '#00000080',
         lightBlack200: '#00000066',
+        lightBlack300: '#0000004D',
         customGray: '#B8B2B24D',
         customGray100: '#B6B5B5',
         customGray200: '#B6B5B50D',
