@@ -4,11 +4,21 @@ import { useEffect, useState } from 'react';
 import { sidebarData } from '../../constants/SideBarData';
 import { CiMenuBurger } from 'react-icons/ci';
 import { MdOutlineLogout } from 'react-icons/md';
+import Modal from '../../constants/Reuseables/Modal';
 const Sidebar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(window.innerWidth > 850);
   const [toggled, setToggled] = useState(false);
+  const [logoutModal, setLogoutModal] = useState(false);
 
+  const openLogoutModal = () => {
+    setLogoutModal(true);
+  };
+  const closeLogoutModal = () => {
+    setLogoutModal(false);
+  };
+
+  const handleLogout = () => {};
   const isActive = (url: any) => {
     return location.pathname === url || location.pathname.startsWith(`${url}/`);
   };
@@ -36,7 +46,7 @@ const Sidebar = () => {
         <div
           className={`${
             isOpen ? 'w-64' : 'w-16 '
-          }  duration-500 bg-white px-4 lg:w-80 flex-shrink-0 fixed h-full  shadow-[4px_4px_20px_#0000000D]`}>
+          }  duration-500 bg-white z-20 px-4 lg:w-80 flex-shrink-0 fixed h-full  shadow-[4px_4px_20px_#0000000D]`}>
           <div className={`flex items-center mb-9 mt-7 gap-4 `}>
             <button
               className={`lg:hidden ${toggled && isOpen ? 'ml-3 ' : ''}`}
@@ -97,12 +107,22 @@ const Sidebar = () => {
             <div className="py-2 mt-4">
               <div className="flex items-center ml-3 gap-[18px] cursor-pointer font-medium text-base ">
                 <MdOutlineLogout className="text-customGreen " />
-                <p>Logout</p>
+                <p onClick={openLogoutModal}>Logout</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {logoutModal && (
+        <Modal
+          isOpen={logoutModal}
+          onClose={closeLogoutModal}
+          onConfirm={handleLogout}
+          title="Are you sure you want to Log Out?"
+          cancelButtonText="No"
+          confirmButtonText="Logout"
+        />
+      )}
     </div>
   );
 };

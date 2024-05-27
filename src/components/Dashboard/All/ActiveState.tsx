@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Tabs from './Tabs';
 import { useState } from 'react';
 import TodoTable from './TodoTable';
@@ -9,6 +10,15 @@ const ActiveState = () => {
   const [openModal, setOpenModal] = useState(false);
   const modalHandler = () => {
     setOpenModal(!openModal);
+  };
+
+  const handleCloseAddModal = () => {
+    setOpenModal(false);
+  };
+
+  const handleAddSubmit = (data: any) => {
+    console.log('Add task data:', data);
+    // Handle add task submission logic here
   };
   const todo = [
     {
@@ -116,7 +126,7 @@ const ActiveState = () => {
 
   return (
     <>
-      <div className=" mt-4 text-xl text-black border-transparent overflow-x-auto sm:overflow-hidden">
+      <div className="text-xl text-black border-transparent overflow-x-auto sm:overflow-hidden">
         <Tabs tabs={tabs} onSearchChange={handleSearchChange} />
         <div className="flex justify-end">
           <button
@@ -127,7 +137,21 @@ const ActiveState = () => {
           </button>
         </div>
       </div>
-          {openModal && <TaskModal openModal={setOpenModal} />}
+      {openModal && (
+        <TaskModal
+          isOpen={openModal}
+          onClose={handleCloseAddModal}
+          onSubmit={handleAddSubmit}
+          mode="add"
+          title="Add a New Task"
+          categoryOptions={[
+            { value: 'work', label: 'Work' },
+            { value: 'family', label: 'Family' },
+            { value: 'friends', label: 'Friends' },
+          ]}
+          buttonText="Add"
+        />
+      )}
     </>
   );
 };

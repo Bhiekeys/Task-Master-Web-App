@@ -1,11 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HiDotsHorizontal } from 'react-icons/hi';
 import { LuCalendarDays } from 'react-icons/lu';
 import { MdAccessTime } from 'react-icons/md';
 import { RxDotFilled } from 'react-icons/rx';
 import { PiFlagLight } from 'react-icons/pi';
 import { useEffect, useRef, useState } from 'react';
+import TaskModal from '../../../constants/Reuseables/TaskModal';
+import Modal from '../../../constants/Reuseables/Modal';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 interface Todo {
   id: number;
   title: string;
@@ -23,12 +25,37 @@ interface TodoTableProps {
 const TodoTable: React.FC<TodoTableProps> = ({ todo, searchQuery }) => {
   const [selectedTaskId, setSelectedTaskId] = useState<number | null>(null);
   const modalRef = useRef<HTMLDivElement | null>(null);
+  const [viewTask, setViewTask] = useState<boolean>(false);
+  const [editTask, setEditTask] = useState<boolean>(false);
+  const [deleteTask, setDeleteTask] = useState<boolean>(false);
 
+  const viewTaskHandler = () => {
+    setViewTask(true);
+  };
+  const closeTaskHandler = () => {
+    setViewTask(false);
+  };
+  const editTaskHandler = () => {
+    setEditTask(true);
+  };
+  const closeEditTaskHandler = () => {
+    setEditTask(false);
+  };
+  const openDeleteTaskModal = () => {
+    setDeleteTask(true);
+  };
+  const closeDeleteTaskHandler = () => {
+    setDeleteTask(false);
+  };
+
+  const handleDelete = () => {};
+  const handleEditSubmit = (data: any) => {
+    console.log('Edit task data:', data);
+    // Handle edit task submission logic here
+  };
   const toggleDropdown = (id: number) => {
     setSelectedTaskId((prevId) => (prevId === id ? null : id));
   };
-
- 
 
   const filteredTodos = searchQuery
     ? todo.filter((t: Todo) =>
@@ -106,11 +133,11 @@ const TodoTable: React.FC<TodoTableProps> = ({ todo, searchQuery }) => {
                     <div
                       ref={modalRef}
                       className="absolute z-10 right-14 cursor-pointer text-[10px] text-customGreen mt-44 p-2 rounded-br-[10px] rounded-tl-[10px] shadow-lg bg-white">
-                      <p>view task</p>
-                      <p>edit task</p>
+                      <p onClick={viewTaskHandler}>view task</p>
+                      <p onClick={editTaskHandler}>edit task</p>
                       <p>move to in progress</p>
                       <p>move to completed</p>
-                      <p>delete task</p>
+                      <p onClick={openDeleteTaskModal}>delete task</p>
                     </div>
                   )}
                 </div>
@@ -119,7 +146,56 @@ const TodoTable: React.FC<TodoTableProps> = ({ todo, searchQuery }) => {
           })}
         </>
       )}
-   
+      {viewTask && (
+        <TaskModal
+          isOpen={viewTask}
+          onClose={closeTaskHandler}
+          onSubmit={handleEditSubmit}
+          mode="view"
+          title="Task Details"
+          initialDate={new Date()}
+          initialTime="12:00"
+          initialCategory="work"
+          initialTitle="Existing Task"
+          initialDescription="This is an existing task description."
+          categoryOptions={[
+            { value: 'work', label: 'Work' },
+            { value: 'family', label: 'Family' },
+            { value: 'friends', label: 'Friends' },
+          ]}
+          buttonText="Save"
+        />
+      )}
+      {editTask && (
+        <TaskModal
+          isOpen={editTask}
+          onClose={closeEditTaskHandler}
+          onSubmit={handleEditSubmit}
+          mode="edit"
+          title="Edit Task"
+          initialDate={new Date()}
+          initialTime="12:00"
+          initialCategory="work"
+          initialTitle="Existing Task"
+          initialDescription="This is an existing task description."
+          categoryOptions={[
+            { value: 'work', label: 'Work' },
+            { value: 'family', label: 'Family' },
+            { value: 'friends', label: 'Friends' },
+          ]}
+          buttonText="Save"
+        />
+      )}
+      {deleteTask && (
+        <Modal
+          isOpen={deleteTask}
+          onClose={closeDeleteTaskHandler}
+          onConfirm={handleDelete}
+          title="Are you sure you want to delete?"
+          cancelButtonText="No"
+          confirmButtonText="Delete"
+        />
+      )}
     </div>
   );
 };
