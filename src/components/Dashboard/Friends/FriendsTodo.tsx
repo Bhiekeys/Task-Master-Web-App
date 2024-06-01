@@ -19,7 +19,7 @@ interface TaskListProps {
   searchQuery?: string;
 }
 
-const TodoTable: React.FC<TaskListProps> = ({ tasks, searchQuery }) => {
+const FriendsTodo: React.FC<TaskListProps> = ({ tasks, searchQuery }) => {
   const [selectedTaskId, setSelectedTaskId] = useState<number | null>(null);
   const modalRef = useRef<HTMLDivElement | null>(null);
   const [viewTask, setViewTask] = useState<boolean>(false);
@@ -148,4 +148,4 @@ const TodoTable: React.FC<TaskListProps> = ({ tasks, searchQuery }) => {
   );
 };
 
-export default TodoTable;
+export default FriendsTodo;

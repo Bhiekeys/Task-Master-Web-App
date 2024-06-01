@@ -4,6 +4,12 @@ import Login from './pages/LandingPage/Login';
 import CreateAccount from './pages/LandingPage/CreateAccount';
 import DashboardLayout from './components/LayOut/DashboardLayout';
 import All from './pages/Dashboard/All';
+import ForgotPassword from './pages/LandingPage/ForgotPassword';
+import Today from './pages/Dashboard/Today';
+import Important from './pages/Dashboard/Important';
+import Work from './pages/Dashboard/Work';
+import Family from './pages/Dashboard/Family';
+import Friends from './pages/Dashboard/Friends';
 
 const Router = () => {
   return useRoutes([
@@ -24,6 +30,10 @@ const Router = () => {
           element: <CreateAccount />,
         },
         {
+          path: '/forgotPassword',
+          element: <ForgotPassword />,
+        },
+        {
           element: <DashboardLayout />,
           children: [
             {
@@ -32,43 +42,23 @@ const Router = () => {
             },
             {
               path: '/dashboard/today',
-              element: (
-                <div className="flex h-screen  pt-[80px] justify-center items-center bg-[#F6F6F7] py-4 ">
-                  TODAY HERE!!!!!
-                </div>
-              ),
+              element: <Today />,
             },
             {
               path: '/dashboard/important',
-              element: (
-                <div className="flex h-screen  pt-[80px] justify-center items-center bg-[#F6F6F7] py-4 ">
-                  Important HERE!!!!!
-                </div>
-              ),
+              element: <Important />,
             },
             {
               path: '/dashboard/work',
-              element: (
-                <div className="flex h-screen  pt-[80px] justify-center items-center bg-[#F6F6F7] py-4 ">
-                  WORK HERE!!!!!
-                </div>
-              ),
+              element: <Work />,
             },
             {
               path: '/dashboard/family',
-              element: (
-                <div className="flex h-screen  pt-[80px] justify-center items-center bg-[#F6F6F7] py-4 ">
-                  FAMILY HERE!!!!!
-                </div>
-              ),
+              element: <Family />,
             },
             {
               path: '/dashboard/friends',
-              element: (
-                <div className="flex h-screen  pt-[80px] justify-center items-center bg-[#F6F6F7] py-4 ">
-                  FRIENDS HERE!!!!!
-                </div>
-              ),
+              element: <Friends />,
             },
           ],
         },

@@ -1,5 +1,5 @@
+import Header from '../All/Header';
 import ActiveState from './ActiveState';
-import Header from './Header';
 
 const Head = () => {
   return (

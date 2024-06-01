@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Tabs from './Tabs';
 import { useState } from 'react';
-import TodoTable from './TodoTable';
+import TodoTable from './FamilyTodo';
 import { MdAdd } from 'react-icons/md';
 import TaskModal from '../../../constants/Reuseables/TaskModal';
 

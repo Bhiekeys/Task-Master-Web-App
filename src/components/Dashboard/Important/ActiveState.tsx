@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Tabs from './Tabs';
 import { useState } from 'react';
-import TodoTable from './TodoTable';
+import TodoTable from './ImportantTodo';
 import { MdAdd } from 'react-icons/md';
 import TaskModal from '../../../constants/Reuseables/TaskModal';
 
@@ -35,14 +35,14 @@ const ActiveState = () => {
       time: '10:30am',
       date: 'Monday, 13th June, 2024',
       important: true,
-      status: 'todo',
+      status: 'inProgress',
     },
     {
       id: 3,
       title: 'Open Udemy and learn a new skill',
       time: '10:30am',
       date: 'Monday, 13th June, 2024',
-      important: false,
+      important: true,
       status: 'inProgress',
     },
     {
@@ -50,7 +50,7 @@ const ActiveState = () => {
       title: 'Open Udemy and learn a new skill',
       time: '10:30am',
       date: 'Monday, 13th June, 2024',
-      important: false,
+      important: true,
       status: 'completed',
     },
     {
@@ -66,7 +66,7 @@ const ActiveState = () => {
       title: 'Open Udemy and learn a new skill',
       time: '10:30am',
       date: 'Monday, 13th June, 2024',
-      important: false,
+      important: true,
       status: 'completed',
     },
     {

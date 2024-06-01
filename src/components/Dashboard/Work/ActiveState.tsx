@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Tabs from './Tabs';
 import { useState } from 'react';
-import TodoTable from './TodoTable';
+import TodoTable from './WorkTodo';
 import { MdAdd } from 'react-icons/md';
 import TaskModal from '../../../constants/Reuseables/TaskModal';
 
@@ -26,16 +26,16 @@ const ActiveState = () => {
       title: 'Meeting with Tee Tenor',
       time: '10:30am',
       date: 'Monday, 13th June, 2024',
-      important: true,
-      status: 'todo',
+      important: false,
+      status: 'inProgress',
     },
     {
       id: 2,
       title: 'Open Udemy and learn a new skill',
       time: '10:30am',
       date: 'Monday, 13th June, 2024',
-      important: true,
-      status: 'todo',
+      important: false,
+      status: 'inProgress',
     },
     {
       id: 3,
