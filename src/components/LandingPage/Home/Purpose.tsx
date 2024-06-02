@@ -25,9 +25,10 @@ const Purpose = () => {
             return (
               <motion.div
                 ref={sectionRef}
-                initial={{ opacity: 1 }}
+                initial={{ opacity: 1, rotateX: 10 }}
                 animate={{
                   opacity: isVisible ? 1 : 1,
+                  rotateX: isVisible ? 0 : 10,
                 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 key={id}
@@ -36,18 +37,10 @@ const Purpose = () => {
                   {' '}
                   {icon}
                 </span>
-                <motion.div
-                  ref={sectionRef}
-                  initial={{ opacity: 1, rotateY: 100 }}
-                  animate={{
-                    opacity: isVisible ? 1 : 0,
-                    rotateY: isVisible ? 0 : 100,
-                  }}
-                  transition={{ duration: 0.5, delay: id * 0.2 }}
-                  className="">
+                <div className="">
                   <h3 className="text-lg font-semibold">{title}</h3>
                   <p className="text-sm  mt-2 max-w-[271px]">{text}</p>
-                </motion.div>
+                </div>
               </motion.div>
             );
           })}
