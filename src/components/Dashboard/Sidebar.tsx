@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { sidebarData } from '../../constants/SideBarData';
 import { CiMenuBurger } from 'react-icons/ci';
 import { MdOutlineLogout } from 'react-icons/md';
 import Modal from '../../constants/Reuseables/Modal';
 const Sidebar = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(window.innerWidth > 850);
   const [toggled, setToggled] = useState(false);
@@ -17,12 +18,12 @@ const Sidebar = () => {
   const closeLogoutModal = () => {
     setLogoutModal(false);
   };
-
-  const handleLogout = () => {};
   const isActive = (url: any) => {
     return location.pathname === url || location.pathname.startsWith(`${url}/`);
   };
-
+  const handleLogout = () => {
+    navigate('/login');
+  };
   const toggle = () => {
     setIsOpen(!isOpen);
     setToggled(true);

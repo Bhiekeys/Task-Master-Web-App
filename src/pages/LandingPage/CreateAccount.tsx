@@ -1,10 +1,14 @@
+import { Helmet } from 'react-helmet';
 import AccountCreation from '../../components/Auth/CreateAccount';
 
 const CreateAccount = () => {
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>Task-Master | Sign up</title>
+      </Helmet>
       <AccountCreation />
-    </div>
+    </>
   );
 };
 export default CreateAccount;

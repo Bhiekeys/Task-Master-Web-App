@@ -25,12 +25,11 @@ const Purpose = () => {
             return (
               <motion.div
                 ref={sectionRef}
-                initial={{ opacity: 1, rotateX: 10 }}
+                initial={{ opacity: 1 }}
                 animate={{
                   opacity: isVisible ? 1 : 1,
-                  rotateX: isVisible ? 0 : 10,
                 }}
-                transition={{ duration: 0.5, delay: id * 0.1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
                 key={id}
                 className="flex  items-center bg-white  md:mx-0 h-[236px] px-5 max-w-[527px] rounded-[10px] gap-3 lg:px-20">
                 <span className="bg-customGreen text-white p-2 rounded-full text-xl mb-10">
@@ -39,12 +38,12 @@ const Purpose = () => {
                 </span>
                 <motion.div
                   ref={sectionRef}
-                  initial={{ opacity: 1, rotateX: 10 }}
+                  initial={{ opacity: 1, rotateY: 100 }}
                   animate={{
-                    opacity: isVisible ? 0.2 : 1,
-                    rotateX: isVisible ? 0 : 10,
+                    opacity: isVisible ? 1 : 0,
+                    rotateY: isVisible ? 0 : 100,
                   }}
-                  transition={{ duration: 0.5, delay: id * 0.1 }}
+                  transition={{ duration: 0.5, delay: id * 0.2 }}
                   className="">
                   <h3 className="text-lg font-semibold">{title}</h3>
                   <p className="text-sm  mt-2 max-w-[271px]">{text}</p>

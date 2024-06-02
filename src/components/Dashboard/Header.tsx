@@ -1,14 +1,31 @@
 import { useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { GrClose } from 'react-icons/gr';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { sidebarData } from '../../constants/SideBarData';
 import { MdOutlineLogout } from 'react-icons/md';
 import { IoNotificationsOutline } from 'react-icons/io5';
 import { FaRegUser } from 'react-icons/fa';
+import Modal from '../../constants/Reuseables/Modal';
 
 const Header = () => {
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
+  const [logoutModal, setLogoutModal] = useState(false);
+
+  const openLogoutModal = () => {
+     setShow(false);
+    setLogoutModal(true);
+  };
+  const closeLogoutModal = () => {
+    setLogoutModal(false);
+  };
+
+  const handleLogout = () => {
+   
+    navigate('/login');
+  };
+
   const showHandler = () => {
     setShow(!show);
   };
@@ -66,7 +83,7 @@ const Header = () => {
         })}
 
         <button
-          onClick={showContent}
+          onClick={openLogoutModal}
           className={
             'font-medium hover:text-customGreen flex items-center gap-3'
           }>
@@ -77,6 +94,16 @@ const Header = () => {
           </p>
         </button>
       </div>
+      {logoutModal && (
+        <Modal
+          isOpen={logoutModal}
+          onClose={closeLogoutModal}
+          onConfirm={handleLogout}
+          title="Are you sure you want to Log Out?"
+          cancelButtonText="No"
+          confirmButtonText="Logout"
+        />
+      )}
     </div>
   );
 };

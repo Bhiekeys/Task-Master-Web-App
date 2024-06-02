@@ -37,8 +37,8 @@ const Tabs: React.FC<TabsProps> = ({ tabs, onSearchChange }) => {
             />
             <IoMdSearch className="ml-2 cursor-pointer text-xl" />
           </div>
-          <h2 className="font-semibold  text-xl mt-[15px] mb-1">
-            New Tasks
+          <h2 className="font-semibold  text-xl mt-[15px] mb-3">
+            All Tasks 
           </h2>
           <div className="flex flex-col-reverse sm:flex-row justify-between w-full border-[#EDE0DE] border-b ">
             <div className="flex">

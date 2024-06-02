@@ -1,10 +1,14 @@
+import { Helmet } from 'react-helmet';
 import Signin from '../../components/Auth/Login';
 
 const Login = () => {
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>Task-Master | Login</title>
+      </Helmet>
       <Signin />
-    </div>
+    </>
   );
 };
 export default Login;
