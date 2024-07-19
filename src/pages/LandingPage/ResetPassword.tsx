@@ -19,7 +19,8 @@ const ResetPassword = () => {
     handleSubmit,
     control,
   } = useForm<ResetPasswordProps>();
-  const onSubmitForm: SubmitHandler<ResetPasswordProps> = (data) => {
+    const onSubmitForm: SubmitHandler<ResetPasswordProps> = (data) => {
+      console.log(data)
     //    const signupData = {
     //      ...data,
     //    };
