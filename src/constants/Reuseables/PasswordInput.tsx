@@ -11,6 +11,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
   label,
   id,
   placeholder,
+  ...rest
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -28,8 +29,9 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
           type={showPassword ? 'text' : 'password'}
           id={id}
           name={id}
-          className="border border-gray-300 w-full rounded-md px-3 py-2 pr-10 focus:outline-none focus:border-blue-500"
+          className="border border-gray-300 w-full rounded-md px-3 py-2 pr-10 focus:outline-none focus:border-customGreen400"
           placeholder={placeholder}
+          {...rest}
         />
         <button
           type="button"

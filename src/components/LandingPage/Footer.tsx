@@ -107,12 +107,12 @@ const navs = [
   {
     id: 2,
     text: 'Log in',
-    url: '/login',
+    url: '/auth/login',
   },
   {
     id: 3,
     text: 'Sign Up',
-    url: '/createAccount',
+    url: '/auth/createAccount',
   },
   {
     id: 4,

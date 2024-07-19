@@ -22,7 +22,7 @@ const Input: React.FC<InputProps> = ({
         type={type}
         id={id}
         name={id}
-        className="border border-gray-300 w-full rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
+        className="border border-gray-300 w-full rounded-md px-3 py-2 focus:outline-none focus:border-customGreen400"
         placeholder={placeholder}
         {...rest}
       />

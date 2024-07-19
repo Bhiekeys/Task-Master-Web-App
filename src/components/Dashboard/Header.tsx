@@ -7,14 +7,15 @@ import { MdOutlineLogout } from 'react-icons/md';
 import { IoNotificationsOutline } from 'react-icons/io5';
 import { FaRegUser } from 'react-icons/fa';
 import Modal from '../../constants/Reuseables/Modal';
+import { useUserAuthStore } from '../../store/auth';
 
 const Header = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [logoutModal, setLogoutModal] = useState(false);
-
+  const clearStore = useUserAuthStore((state) => state.clearToken);
   const openLogoutModal = () => {
-     setShow(false);
+    setShow(false);
     setLogoutModal(true);
   };
   const closeLogoutModal = () => {
@@ -22,8 +23,9 @@ const Header = () => {
   };
 
   const handleLogout = () => {
-   
-    navigate('/login');
+    clearStore();
+    sessionStorage.removeItem('user-auth-store');
+    navigate('/auth/login');
   };
 
   const showHandler = () => {

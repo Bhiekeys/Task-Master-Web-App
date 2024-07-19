@@ -5,13 +5,14 @@ import { sidebarData } from '../../constants/SideBarData';
 import { CiMenuBurger } from 'react-icons/ci';
 import { MdOutlineLogout } from 'react-icons/md';
 import Modal from '../../constants/Reuseables/Modal';
+import { useUserAuthStore } from '../../store/auth';
 const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(window.innerWidth > 850);
   const [toggled, setToggled] = useState(false);
   const [logoutModal, setLogoutModal] = useState(false);
-
+  const clearStore = useUserAuthStore((state) => state.clearToken);
   const openLogoutModal = () => {
     setLogoutModal(true);
   };
@@ -22,7 +23,9 @@ const Sidebar = () => {
     return location.pathname === url || location.pathname.startsWith(`${url}/`);
   };
   const handleLogout = () => {
-    navigate('/login');
+    clearStore();
+    sessionStorage.removeItem('user-auth-store');
+    navigate('/auth/login');
   };
   const toggle = () => {
     setIsOpen(!isOpen);

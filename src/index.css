@@ -34,7 +34,7 @@ input {
 
 .scrollbar-hide {
     scrollbar-width: thin;
-    scrollbar-color: #0001 transparent;
+    scrollbar-color: #e9f1f1 transparent;
     &::-webkit-scrollbar {
         width: 5px;
     }

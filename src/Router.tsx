@@ -2,7 +2,6 @@ import { useRoutes } from 'react-router-dom';
 import Home from './pages/LandingPage/Home';
 import Login from './pages/LandingPage/Login';
 import CreateAccount from './pages/LandingPage/CreateAccount';
-import DashboardLayout from './components/LayOut/DashboardLayout';
 import All from './pages/Dashboard/All';
 import ForgotPassword from './pages/LandingPage/ForgotPassword';
 import Today from './pages/Dashboard/Today';
@@ -10,6 +9,10 @@ import Important from './pages/Dashboard/Important';
 import Work from './pages/Dashboard/Work';
 import Family from './pages/Dashboard/Family';
 import Friends from './pages/Dashboard/Friends';
+import ConfirmEmail from './components/Auth/ConfirmEmail';
+import NotFound from './pages/NotFound';
+import PrivateRoute from './utils/PrivateRoute';
+import ResetPassword from './pages/LandingPage/ResetPassword';
 
 const Router = () => {
   return useRoutes([
@@ -22,19 +25,27 @@ const Router = () => {
           element: <Home />,
         },
         {
-          path: '/login',
+          path: '/auth/login',
           element: <Login />,
         },
         {
-          path: '/createAccount',
+          path: '/auth/createAccount',
           element: <CreateAccount />,
         },
         {
-          path: '/forgotPassword',
+          path: '/auth/forgotPassword',
           element: <ForgotPassword />,
         },
         {
-          element: <DashboardLayout />,
+          path: '/auth/resetPassword',
+          element: <ResetPassword />,
+        },
+        {
+          path: '/auth/confirmEmail',
+          element: <ConfirmEmail />,
+        },
+        {
+          element: <PrivateRoute />,
           children: [
             {
               path: '/dashboard/all',
@@ -66,7 +77,7 @@ const Router = () => {
     },
     {
       path: '*',
-      element: <h2>Page Not Found</h2>,
+      element: <NotFound />,
       errorElement: <h2>Error Ocurred</h2>,
     },
   ]);

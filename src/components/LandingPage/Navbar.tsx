@@ -80,7 +80,7 @@ const Navbar = () => {
           );
         })}
         <NavLink
-          to="/login"
+          to="/auth/login"
           onClick={() => setShow(false)}
           className={({ isActive }) =>
             isActive
@@ -128,14 +128,14 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex items-center gap-5 pr-5">
-          <RouterLink to="/login">
+          <RouterLink to="/auth/login">
             <button
               type="button"
               className="font-bold text-sm text-customGreen ">
               Log in
             </button>
           </RouterLink>
-          <RouterLink to="/createAccount">
+          <RouterLink to="/auth/createAccount">
             <button
               type="button"
               className="text-customPink bg-customGreen py-3 px-8 rounded-[10px]">
