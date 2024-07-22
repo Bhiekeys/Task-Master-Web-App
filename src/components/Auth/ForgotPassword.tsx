@@ -44,9 +44,14 @@ const ForgotPassword = () => {
 
   const onSubmitForm = (data: ForgotPasswordProps) => {
     verifyOTP.mutate(data, {
-      onSuccess: (data) => {
+      onSuccess: (data: any) => {
         toast.success(data?.data?.message);
-        navigate('/auth/resetPassword'); 
+        navigate('/auth/resetPassword', {
+          state: {
+            email: data?.data?.data?.email,
+            otpId: data?.data?.data?.otpId,
+          },
+        });
       },
       onError: (error: any) => {
         toast.error(
@@ -54,7 +59,6 @@ const ForgotPassword = () => {
         );
       },
     });
-    console.log('Final submission:', data);
   };
 
   return (

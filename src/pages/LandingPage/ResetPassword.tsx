@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Helmet } from 'react-helmet';
 import background from '../../assets/background.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Controller,
   FieldErrors,
@@ -8,35 +9,47 @@ import {
   useForm,
 } from 'react-hook-form';
 import PasswordInput from '../../constants/Reuseables/PasswordInput';
+import { useEffect } from 'react';
+import { useMutation } from 'react-query';
+import { services } from '../../utils/Services';
+import { toast } from 'react-toastify';
 
 type ResetPasswordProps = {
   password: string;
   confirmPassword: string;
 };
 const ResetPassword = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { email, otpId } = location.state || {};
+
   const {
     formState: { isDirty, isValid },
     handleSubmit,
     control,
   } = useForm<ResetPasswordProps>();
-    const onSubmitForm: SubmitHandler<ResetPasswordProps> = (data) => {
-      console.log(data)
-    //    const signupData = {
-    //      ...data,
-    //    };
-    //    mutation.mutate(signupData, {
-    //      onSuccess: (data) => {
-    //        toast.success(data?.data?.message);
-    //        navigate('/auth/confirmEmail', {
-    //          state: { email: signupData.email },
-    //        });
-    //      },
-    //      onError: (error: any) => {
-    //        toast.error(
-    //          error?.response ? error?.response?.data?.message : error?.message
-    //        );
-    //      },
-    //    });
+  useEffect(() => {
+    if (!email || !otpId) {
+      console.error('Email or OTP ID is missing');
+      navigate('/auth/forgotPassword'); // Redirect to forgot password page
+    }
+  }, [email, otpId, navigate]);
+
+  const mutation = useMutation((data: ResetPasswordProps) =>
+    services.resetPassword({ email, otpId }, data)
+  );
+  const onSubmitForm: SubmitHandler<ResetPasswordProps> = (data) => {
+    mutation.mutate(data, {
+      onSuccess: (data) => {
+        toast.success(data?.data?.message);
+        // navigate('/auth/login'); // Adjust the redirect as necessary
+      },
+      onError: (error: any) => {
+        toast.error(
+          error?.response ? error?.response?.data?.message : error?.message
+        );
+      },
+    });
   };
   const onInvalid = (errors: FieldErrors) => console.error(errors);
   return (
@@ -66,11 +79,9 @@ const ResetPassword = () => {
                 <h2 className="font-semibold text-xl">
                   Forgot your password??{' '}
                 </h2>
-                <p className="text-sm">
-                  Now set a New Password{' '}
-                 
-                </p>
+                <p className="text-sm">Now set a New Password </p>
               </div>
+
               <form
                 onSubmit={handleSubmit(onSubmitForm, onInvalid)}
                 noValidate

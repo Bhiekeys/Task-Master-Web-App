@@ -22,4 +22,16 @@ export const services = {
       payload
     );
   },
+  resetPassword: async (
+    params: { email: string; otpId: string },
+    payload: {
+      password: string;
+      confirmPassword: string;
+    }
+  ) => {
+    return await TaskMasterAPI().post(
+      `auth/reset-password/${params.email}/${params.otpId}`,
+      payload
+    );
+  },
 };
